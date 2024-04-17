@@ -1,0 +1,88 @@
+get the image https://github.com/aluminum-ice/pwnagotchi/releases/
+burn with balena etcher
+before removing sd card, edit /boot/config.toml and change anything you need to in there
+
+main.name = "pwnagotchi"
+ main.lang = "en"
+ main.whitelist = [
+ "EXAMPLE_NETWORK",
+ "ANOTHER_EXAMPLE_NETWORK",
+ "fo:od:ba:be:fo:od",
+ "fo:od:ba"
+ ]
+
+ main.plugins.grid.enabled = true
+ main.plugins.grid.report = true
+ main.plugins.grid.exclude = [
+ "YourHomeNetworkHere"
+ ]
+
+ ui.display.enabled = true
+ ui.display.type = "waveshare_2"
+ ui.display.color = "black"
+
+save and exit the file, unmount the disks
+put the microsd in the raspberry pi
+
+boot the pi with ethernet plugged in and your wlan usb adapter.
+
+ssh to it
+
+ user: pi
+ pass: raspberry 
+
+upgrade everything
+
+ $ sudo rm /var/lib/dpkg/status
+ $ sudo touch /var/lib/dpkg/status
+ $ sudo apt update
+ $ sudo apt upgrade 
+
+get the adafruit 3.5" tft working
+
+$ sudo mv /etc/apt/apt.conf.d/20listchanges /etc/apt/apt.conf.d/20listchanges.bak
+$ sudo apt-get install apt-listchanges
+$ sudo apt-get install -y git python3-pip
+$ sudo apt-get --reinstall install python3-software-properties
+$ python3 -m pip install --upgrade pip
+$ pip3 install --upgrade adafruit-python-shell click
+$ git clone https://github.com/adafruit/Raspberry-Pi-Installer-Scripts.git
+$ cd Raspberry-Pi-Installer-Scripts
+
+I have the PiTFT 3.5" Resistive touchscreen so, i went with this, but you can find others here
+
+$ sudo python3 adafruit-pitft.py --display=35r --rotation=90 --install-type=console
+
+now get it working with pwnagotchi. ssh to your rpi. taken from here
+
+$ sudo /bin/bash 
+# cd /root
+# cp /usr/local/lib/python3.7/dist-packages/pwnagotchi/ui/web/static/images/pwnagotchi.png /root 
+# apt install fbi 
+# nano /etc/pwnagotchi/config.toml 
+
+add these or edit yours to be like this
+
+ui.display.enabled = true
+ui.display.type = "waveshare35lcd"
+ui.display.color = "black"
+
+then edit the boot cmd line
+# nano /boot/cmdline.txt 
+add this if not already there 
+add "modules-load=dwc2,g_ether"
+then edit your rc.local
+# nano /etc/rc.local
+add this before exit 0 
+ln -s /root/pwnagotchi.png /tmp/pwnagotchi_1.png; ln -s /root/pwnagotchi.png /tmp/pwnagotchi_2.png; ln -s /root/pwnagotchi.png /tmp/pwnagotchi_3.png;
+then edit your /etc/profile
+# nano /etc/profile 
+add this at the end 
+. /home/pi/pwnagotchi.sh
+then edit your pwnagotchi configuration file
+# nano /home/pi/pwnagotchi.sh 
+#!/bin/bash 
+sudo fbi -T 1 -a -noverbose -t 15 -cachemem 0 /tmp/pwnagotchi_1.png /tmp/pwnagotchi_2.png /tmp/pwnagotchi_3.png &
+then make it executable
+# chmod +x /home/pi/pwnagotchi.sh 
+you’re done. just reboot and you’re all set to start testing.
