@@ -25,3 +25,48 @@ echo "en_US.UTF-8 UTF-8" | sudo tee -a /etc/locale.gen
 echo "LANG=en_US.UTF-8" | sudo tee -a /etc/locale.conf
 sudo locale-gen en_US.UTF-8
 -----------------------------------------------------------------------------------------
+pwnagoshi.sh script:
+
+#!/bin/bash
+START=true
+
+while $START
+do
+  readarray -t PIDS < <(exec pgrep -x fbi)
+  if [[ ${#PIDS[@]} -eq 0 ]]; then
+    echo "No fbi process was found."
+    sudo fbi -T 1 -a -noverbose -t 5 -cachemem 0 /tmp/pwnagotchi_1.png /tmp/pwnagotchi_2.png /tmp/pwnagotchi_3.png
+  elif ps -fp "${PIDS[@]}" | fgrep -F '<defunct>' >/dev/null; then
+    echo "Defunct fbi process found: ${PIDS[*]}"
+    sudo kill -s SIGTERM "${PIDS[@]}"
+    sudo kill -s SIGKILL "${PIDS[@]}"
+  fi
+  sleep 15
+done
+-------------------------------------------------------------------------------------------
+ rc.local
+
+#!/bin/sh -e
+#
+# rc.local
+#
+# This script is executed at the end of each multiuser runlevel.
+# Make sure that the script will "exit 0" on success or any other
+# value on error.
+#
+# In order to enable or disable this script just change the execution
+# bits.
+#
+# By default this script does nothing.
+
+# Print the IP address
+_IP=$(hostname -I) || true
+if [ "$_IP" ]; then
+  printf "My IP address is %s\n" "$_IP"
+fi
+
+ln -s /var/tmp/pwnagotchi/pwnagotchi.png /tmp/pwnagotchi_1.png
+ln -s /var/tmp/pwnagotchi/pwnagotchi.png /tmp/pwnagotchi_2.png
+ln -s /var/tmp/pwnagotchi/pwnagotchi.png /tmp/pwnagotchi_3.png
+
+exit 0
