@@ -1,0 +1,22 @@
+sudo apt-key adv --keyserver hkp://pgp.mit.edu --recv-keys 11764EE8AC24832F
+----------------------------------------------------------------------------------------
+uname -r
+#nomorseri
+apt install build-essential linux-headers-#nomorseri dkms git
+cd /opt/
+git clone https://github.com/aircrack-ng/rtl8188eus.git
+echo 'blacklist r8188eu'|sudo tee -a '/etc/modprobe.d/realtek.conf'
+cd /opt/rtl8188eus
+sudo make && sudo make install
+----------------------------------------------------------------------------------------
+git clone https://github.com/waveshare/LCD-show.git
+cd LCD-show/
+chmod +x LCD35-show
+./LCD35-show
+----------------------------------------------------------------------------------------
+    sudo ip route del default
+    sudo route add default gw 172.24.1.1 eth0 (Use your gateway address!)
+    sudo apt install raspberrypi-ui-mods
+    sudo apt install chromium-browser
+    reboot – the default route should restore on bootup
+---------------------------------------------------------------------------------------
