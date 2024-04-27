@@ -79,3 +79,7 @@ sudo mv /var/lib/dpkg/info/* /var/lib/dpkg/info_old
 sudo rm -rf /var/lib/dpkg/info　
 sudo mv /var/lib/dpkg/info_old /var/lib/dpkg/info
 --------------------------------------------------------------------------------------------
+
+sudo rm /usr/lib/python3.11/EXTERNALLY-MANAGED
+
+----------------------------------------------------------------------------------------------
