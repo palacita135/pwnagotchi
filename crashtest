@@ -83,3 +83,5 @@ sudo mv /var/lib/dpkg/info_old /var/lib/dpkg/info
 sudo rm /usr/lib/python3.11/EXTERNALLY-MANAGED
 
 ----------------------------------------------------------------------------------------------
+
+sudo apt install bettercap hostapd-wpe hostapd isc-dhcp-server beef-xss
