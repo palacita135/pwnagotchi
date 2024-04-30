@@ -2,7 +2,7 @@ https://github.com/aluminum-ice/pwnagotchi/releases
 wget "https://github.com/bettercap/bettercap/archive/refs/tags/v2.32.0.zip"
 unzip v2.32.0.zip
 # ... check the sha256 digest before doing this ...
-sudo mv bettercap /usr/bin/
+sudo mv bettercap-2.32.0 /usr/bin/
 # install the caplets and the web ui in /usr/local/share/bettercap and quit
 sudo bettercap -eval "caplets.update; ui.update; quit"
 
