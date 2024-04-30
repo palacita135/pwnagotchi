@@ -1,5 +1,5 @@
 https://github.com/aluminum-ice/pwnagotchi/releases
-wget "https://github.com/bettercap/bettercap/releases/download/v2.32.0/bettercap_linux_amd64_v2.32.0.zip"
+wget "https://github.com/bettercap/bettercap/archive/refs/tags/v2.32.0.zip"
 unzip bettercap_linux_amd64_v2.32.0.zip
 # ... check the sha256 digest before doing this ...
 sudo mv bettercap /usr/bin/
