@@ -1,5 +1,8 @@
 sudo apt-key adv --keyserver hkp://pgp.mit.edu --recv-keys 11764EE8AC24832F
 ----------------------------------------------------------------------------------------
+sudo apt-get update --allow-releaseinfo-change
+
+or do this
 
 rpi ~$ cat /etc/apt/sources.list
 deb http://raspbian.raspberrypi.org/raspbian/ stretch main contrib non-free rpi
