@@ -1,5 +1,18 @@
 sudo apt-key adv --keyserver hkp://pgp.mit.edu --recv-keys 11764EE8AC24832F
 ----------------------------------------------------------------------------------------
+
+rpi ~$ cat /etc/apt/sources.list
+deb http://raspbian.raspberrypi.org/raspbian/ stretch main contrib non-free rpi
+# Uncomment line below then 'apt-get update' to enable 'apt-get source'
+#deb-src http://raspbian.raspberrypi.org/raspbian/ stretch main contrib non-free rpi
+
+rpi ~$ cat /etc/apt/sources.list.d/raspi.list
+deb http://archive.raspberrypi.org/debian/ stretch main ui
+# Uncomment line below then 'apt-get update' to enable 'apt-get source'
+#deb-src http://archive.raspberrypi.org/debian/ stretch main ui
+
+---------------------------------------------------------------------------------------
+
 uname -r
 #nomorseri
 apt install build-essential linux-headers-#nomorseri dkms git
