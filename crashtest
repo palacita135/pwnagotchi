@@ -4,15 +4,15 @@ sudo apt-get update --allow-releaseinfo-change
 
 or do this
 
-rpi ~$ cat /etc/apt/sources.list
-deb http://raspbian.raspberrypi.org/raspbian/ stretch main contrib non-free rpi
-# Uncomment line below then 'apt-get update' to enable 'apt-get source'
-#deb-src http://raspbian.raspberrypi.org/raspbian/ stretch main contrib non-free rpi
+sudo nano /etc/apt/sources.list
+deb-src http://raspbian.raspberrypi.org/raspbian/ stretch main contrib non-free rpi
+deb http://raspbian.raspberrypi.org/raspbian/ bullseye main contrib non-free rpi
 
-rpi ~$ cat /etc/apt/sources.list.d/raspi.list
-deb http://archive.raspberrypi.org/debian/ stretch main ui
-# Uncomment line below then 'apt-get update' to enable 'apt-get source'
-#deb-src http://archive.raspberrypi.org/debian/ stretch main ui
+sudo nano /etc/apt/sources.list.d/raspi.list
+deb-src http://archive.raspberrypi.org/debian/ buster main
+deb https://archive.raspberrypi.org/debian/ buster main
+deb https://archive.raspberrypi.org/debian/ bullseye main
+
 
 ---------------------------------------------------------------------------------------
 
