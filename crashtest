@@ -101,3 +101,28 @@ sudo rm /usr/lib/python3.11/EXTERNALLY-MANAGED
 ----------------------------------------------------------------------------------------------
 
 sudo apt install bettercap hostapd-wpe hostapd isc-dhcp-server beef-xss
+
+-----------------------------------------------------------------------------------------------
+
+UPGRADE PYTHON
+
+sudo apt update
+sudo apt upgrade
+sudo apt install -y build-essential libssl-dev zlib1g-dev libncurses5-dev libncursesw5-dev libreadline-dev libsqlite3-dev libgdbm-dev libdb5.3-dev libbz2-dev libexpat1-dev liblzma-dev tk-dev
+wget https://www.python.org/ftp/python/3.8.0/Python-3.8.0.tgz
+tar -xvf Python-3.8.0.tgz
+cd Python-3.8.0
+./configure --enable-optimizations
+make -j 4  # Adjust the number based on your CPU cores
+sudo make altinstall
+python3.8 --version
+sudo update-alternatives --install /usr/bin/python3 python3 /usr/local/bin/python3.8 2
+sudo update-alternatives --config python3
+python3.8 -m ensurepip
+python3.8 -m pip install --upgrade pip
+python3 --version
+pip3 --version
+
+
+pip install stable-baselines3[extra]
+pip install stable-baselines3
