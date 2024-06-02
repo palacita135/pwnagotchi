@@ -1,3 +1,6 @@
+sudo apt install git python3-pip python3-dev libffi-dev libssl-dev
+---------------------------------------------------------------------------------------
+
 sudo apt-key adv --keyserver hkp://pgp.mit.edu --recv-keys 11764EE8AC24832F
 ----------------------------------------------------------------------------------------
 sudo apt-get update --allow-releaseinfo-change
