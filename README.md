@@ -1,3 +1,5 @@
+Read [How To Install](https://github.com/palacita135/pwnagotchi/blob/main/How%20To%20Install) for guide on your Raspbbery Pi 3B / 4B / 5B
+
 # Pwnagotchi
 
 <p align="center">
