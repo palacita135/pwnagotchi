@@ -34,13 +34,11 @@ pass: raspberry
 ===========================================================================================================================
 upgrade everything
 
- $ sudo rm /var/lib/dpkg/status
- $ sudo touch /var/lib/dpkg/status
- $ sudo apt update
- $ sudo apt upgrade 
- $ sudo raspi-config #set boot CLI automatic login pi user
-
-get the adafruit 3.5" tft working
+$ sudo rm /var/lib/dpkg/status
+$ sudo touch /var/lib/dpkg/status
+$ sudo apt update
+$ sudo apt upgrade 
+$ sudo raspi-config #set boot CLI automatic login pi user
 
 $ sudo mv /etc/apt/apt.conf.d/20listchanges /etc/apt/apt.conf.d/20listchanges.bak
 $ sudo apt-get install apt-listchanges
