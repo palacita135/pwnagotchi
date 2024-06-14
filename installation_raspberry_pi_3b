@@ -29,8 +29,8 @@ boot the pi with ethernet plugged in and your wlan usb adapter.
 
 ssh to it #find the IP with IP SCANNER or something else if your 10.0.0.1 not working
 
- user: pi
- pass: raspberry 
+user: pi
+pass: raspberry 
 ===========================================================================================================================
 upgrade everything
 
