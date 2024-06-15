@@ -62,6 +62,9 @@ then edit the boot cmd line
 # nano /boot/cmdline.txt 
 add this if not already there 
 add "modules-load=dwc2,g_ether"
+# nano /boot/config.txt
+add this if not already there 
+add "dtoverlay=dwc"
 ========================================================================================================================
 then edit your rc.local
 # nano /etc/rc.local
