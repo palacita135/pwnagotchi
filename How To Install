@@ -120,6 +120,9 @@ done
 then make it executable
 # chmod +x /home/pi/pwnagotchi.sh 
 ==========================================================================================================================
+# sudo systemctl enable pwnagotchi
+# sudo systemctl start pwnagotchi
+===========================================================================================================================
 For waveshare 3.5" LCD
 
 git clone https://github.com/waveshare/LCD-show.git
