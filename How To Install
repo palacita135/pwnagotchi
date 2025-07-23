@@ -1,4 +1,5 @@
 get the image https://github.com/aluminum-ice/pwnagotchi/releases/ #search 1.6.1
+or https://github.com/aluminum-ice/pwnagotchi/releases?page=2
 burn with balena etcher
 ========================================================================================================================
 before removing sd card, edit /boot/config.toml and change anything you need to in there
